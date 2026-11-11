@@ -1,10 +1,9 @@
-# Retail-Data-Engineering-Project
-markdown# RetailQ Project - End-to-End Data Engineering Project
+# RetailQ Project - End-to-End Data Engineering Project
 
-> Built for Data Engineering Interviews | Medallion Architecture | Unity Catalog | PySpark
+> Built for Data Engineering  | Medallion Architecture | Unity Catalog | PySpark
 
 RetailQ is an end-to-end Data Engineering project built on Databricks.
-It ingests data from multiple sources like Postgres, Salesforce and Azure Blob,
+It ingests data from multiple sources like Postgres, Salesforce and Blob,
 and transforms it using Medallion Architecture (Bronze -> Silver -> Gold)
 to build a Retail Sales Performance Dashboard.
 
@@ -23,7 +22,7 @@ to build a Retail Sales Performance Dashboard.
 
 - **Platform:** Databricks, Unity Catalog
 - **Language:** SQL, Python (PySpark)
-- **Sources:** Postgres, Salesforce, Azure Blob Storage
+- **Sources:** Postgres, Salesforce, Blob Storage
 - **Catalog:** `retail_q`
 - **Dashboard:** Databricks Lakeview Dashboard
 
@@ -76,15 +75,6 @@ retail_q
 - Created `fact_sales` Gold table by joining Product, Inventory, Accounts and Transactions
 - Built Semantic Layer to ensure one definition of Sales metrics across all Dashboards
 - End-to-end pipeline is reproducible from this repo
-
-## How To Run This Project
-
-1. Run `00_Setup_Create_Catalog.sql` to create catalog `retail_q` and all schemas
-2. Run files in `01_Source_data` to load raw data into Bronze
-3. Run `03_ETL_Pipeline/bronze_to_silver` notebooks
-4. Run `03_ETL_Pipeline/silver_to_gold/fact_sales.py`
-5. Run `02_Notebooks/04_Metric View.py` to create semantic layer
-6. Open Dashboard from `05_Dashboard` folder
 
 ## Dashboard
 
