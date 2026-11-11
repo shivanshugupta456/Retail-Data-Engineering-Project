@@ -62,6 +62,19 @@ The Databricks catalog used in the project is `retail_q`. Its schemas separate s
 | Gold | `retail_gold` | Sales fact, customer and product dimensions, inventory view, and calendar data |
 | Semantic | `retail_semantic` | Metric view used as the dashboard's dataset |
 
+### Databricks Catalog Objects
+
+The following objects were visible in the Databricks catalog when this README was prepared. Confirm names and availability in your workspace, as objects can change independently of this repository.
+
+| Schema | Tables and views |
+|---|---|
+| `retail_q.blob_bronze` | `transactions` |
+| `retail_q.postgres_bronze` | `inventory`, `product_catalog` |
+| `retail_q.salesforce_bronze` | `account`, `opportunity` |
+| `retail_q.retail_silver` | `account`, `inventory`, `opportunity`, `product_catalog`, `transactions` |
+| `retail_q.retail_gold` | `dim_calendar`, `dim_customer`, `dim_product`, `fact_inventory`, `fact_sales` |
+| `retail_q.retail_semantic` | `retail_metrics` |
+
 ### Implemented transformations
 
 - The Blob transactions notebook uses Auto Loader (`cloudFiles`) to ingest CSV files into `retail_q.blob_bronze.transactions`.
@@ -113,6 +126,7 @@ Before using this project with another workspace or presenting dashboard figures
 - The metric view formats currency as USD. Confirm the source currency and update the display format if needed.
 - The SQL sample scripts include invalid-record examples. Review their constraints and data types before executing them in PostgreSQL.
 - Account and opportunity CSV headers differ from the Salesforce-style column names selected by the Silver modules. Add or configure the required mapping if those CSVs are the actual Bronze inputs.
+- The Databricks catalog shows `retail_q.retail_gold.dim_calendar`, while the calendar notebook in this repository creates `retail_q.retail_gold.calendar`. The workspace object exists, but align the notebook and catalog object names so a fresh deployment creates the same object.
 
 ## Skills Demonstrated
 
